@@ -108,14 +108,41 @@ function App() {
         onOk={() => {
           setModal(false);
         }}
+        width={870}
       >
         <ModalPop>
-          <Input value={shipInfo?.orderNo} disabled />
-          <Input value={shipInfo?.date} disabled />
-          <Input value={shipInfo?.customer} disabled />
-          <Input value={shipInfo?.trackingNo} disabled />
-          <Input value={shipInfo?.status} disabled />
-          <Input value={shipInfo?.consignee} disabled />
+          <div className="inputContainer">
+            <div>
+              <label>Order No</label>
+              <Input value={shipInfo?.orderNo} disabled />
+            </div>
+            <div>
+              <label>Date</label>
+              <Input value={shipInfo?.date} disabled />
+            </div>
+          </div>
+
+          <div className="inputContainer">
+            <div>
+              <label>Customer</label>
+              <Input value={shipInfo?.customer} disabled />
+            </div>
+            <div>
+              <label>Tracking No</label>
+              <Input value={shipInfo?.trackingNo} disabled />
+            </div>
+          </div>
+
+          <div className="inputContainer">
+            <div>
+              <label>Status</label>
+              <Input value={shipInfo?.status} disabled />
+            </div>
+            <div>
+              <label>Consignee</label>
+              <Input value={shipInfo?.consignee} disabled />
+            </div>
+          </div>
         </ModalPop>
       </Modal>
     </div>
@@ -130,11 +157,27 @@ const ModalPop = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: color-interpolation-filters;
+  width: 100%;
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 1rem;
+  }
+  .inputContainer div{
+    display:flex;
+    flex-direction:column;
+  } 
+  label {
+    font-weight: 800;
+  }
   Input {
     font-weight: 800;
     color: black;
     text-align: center;
+    margin-bottom: 0.8rem;
+    width: 25rem;
   }
 `;
 export default App;
